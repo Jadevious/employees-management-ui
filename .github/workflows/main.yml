@@ -27,7 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: building ui project
-        run: npm install
+        run: | 
+          npm install
+          run: npm run build --if-present
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
