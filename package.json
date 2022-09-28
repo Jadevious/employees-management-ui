@@ -3,17 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./start"
+    "start": "node ./start",
+    "test": "mocha test/unit/**/*.js",
+    "test-ui": "gulp --gulpfile gulpfile-ui.js ui"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "ejs": "^3.1.8",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@wdio/local-runner": "^7.19.0",
