@@ -14,12 +14,22 @@ const config = require('./config.js')
 
 var useAutoStoreData = process.env.USE_AUTO_STORE_DATA || config.useAutoStoreData
 
-// TODO: Nunjucks config
-// var nunjucksConfig = {
-//   autoescape: true,
-//   noCache: true,
-//   watch: false // We are now setting this to `false` (it's by default false anyway) as having it set to `true` for production was making the tests hang
-// }
+
+var nunjucksConfig = {
+  autoescape: true,
+  noCache: true,
+  express: app,
+  watch: false // We are now setting this to `false` (it's by default false anyway) as having it set to `true` for production was making the tests hang
+}
+
+var nunjucksAppEnv = nunjucks.configure("views", nunjucksConfig)
+ 
+//if (env === 'development') {
+  //nunjucksConfig.watch = true
+//}
+
+//utils.addNunjucksFilters(nunjucksAppEnv)
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -79,6 +89,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  console.log(err);
 });
 
 module.exports = app;
