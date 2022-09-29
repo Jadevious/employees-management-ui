@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var jobdata = require('../jobdata.js')
+var jobdata = require('../data/jobdata.js')
 
 router.get('/', async (req, res) => {     
   res.render('index') 
