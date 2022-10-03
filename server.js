@@ -23,12 +23,6 @@ var nunjucksConfig = {
 }
 
 var nunjucksAppEnv = nunjucks.configure("views", nunjucksConfig)
- 
-//if (env === 'development') {
-  //nunjucksConfig.watch = true
-//}
-
-//utils.addNunjucksFilters(nunjucksAppEnv)
 
 
 // view engine setup
@@ -41,9 +35,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 
 // Adding application-wide variables
 app.locals.asset_path = '/public/'
