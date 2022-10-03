@@ -52,7 +52,6 @@ const allOtherErrors = 'Error contacting API, please contact site Admin'
 
       it('should throw exception when axios has no response', async () => {
         var mock = new MockAdapter(axios);
-
         mock.onGet(URL).timeout();
 
         var error = await jobdata.getJobRoles()
