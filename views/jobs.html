@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 
 <head>
-    
     <title>Job Roles</title>
-
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-
-
 </head>
 
 <body>
-
     <div id="logo">
         <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Kainos_logo.jpg">
     </div>
-
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="http://localhost:3000/job-roles">Job Roles</a></li>
     </ul>
-
-
     <br><br>
-
-
     {% block main %}
     <table>
         {% if jobRoles and jobRoles.length > 0 %}
-
         <th>Job Name</th>
         <th>Job Description</th>
         <br><br>
-
         {% set jobrows = [] %}
         {% for job in jobRoles%}
         <tr>
@@ -40,22 +28,9 @@
             <td>{{job.job_description}}</td>
 
         </tr>
-
         {% endfor %}
-
-
         {% endif %}
 
     </table>
-
-
-
-
     {% endblock %}
-
-
-
-
-
-
 </body>
