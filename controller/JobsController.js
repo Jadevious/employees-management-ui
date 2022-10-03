@@ -3,7 +3,7 @@ var router = express.Router();
 var jobdata = require('../data/jobdata.js')
 
 router.get('/', async (req, res) => {     
-  res.render('index') 
+  res.redirect('job-roles') 
 });
 
 router.get('/job-roles', async (req, res) => { 
@@ -11,18 +11,16 @@ router.get('/job-roles', async (req, res) => {
      var jobs = await jobdata.getJobRoles()
     console.log(jobs)
     if (jobs instanceof Error) {
-      res.locals.errormessage = "Failed retrieve jobs: " + jobs.message;
+      res.locals.errormessage = "Failed to retrieve jobs";
       res.render('error', req.body)
-    }else if(jobs == null){
+    } else if(jobs == null){
       res.locals.errormessage = "No jobs found";
       res.render('error', req.body)
-    }
-     else {
+    } else {
       res.render('jobs.html', { jobRoles: jobs } ) 
     }
   } catch(e) {
-    console.log("Failed to load roles: " + e)
-    res.locals.errormessage = "Failed to retrieve jobs: " + e;
+    res.locals.errormessage = "Failed to render page, please contact a site admin";
     res.render('error', req.body)
   }
 });
