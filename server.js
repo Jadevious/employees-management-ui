@@ -40,6 +40,7 @@ app.use('/public', express.static(path.join(__dirname, '/public')))
 app.locals.asset_path = '/public/'
 app.locals.useAutoStoreData = (useAutoStoreData === 'true')
 
+// Allows cached data to be removed (Stored data not yet implemented)
 app.post('/clear-data', function (req, res) {
   req.session.data = {}
 })
