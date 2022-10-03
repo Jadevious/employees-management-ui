@@ -6,6 +6,7 @@ const jobdata = require("../../../data/jobdata.js");
 const URL = "http://localhost:8080/api/job-roles"
 
 const jobRoles = {
+  job_responsibilities: "You will work on projects where you can make a real difference to people’s lives ",
   job_description: "Builds the software from requirements set by clients",
   name: "Software Engineer"
 }

@@ -19,6 +19,7 @@
         {% if jobRoles and jobRoles.length > 0 %}
         <th>Job Name</th>
         <th>Job Description</th>
+        <th>Job Responsibilities</th>
         <br><br>
         {% set jobrows = [] %}
         {% for job in jobRoles%}
@@ -26,6 +27,8 @@
             <td>{{job.name}}</td>
 
             <td>{{job.job_description}}</td>
+
+            <td>{{job.job_responsibilities}}</td>
 
         </tr>
         {% endfor %}
