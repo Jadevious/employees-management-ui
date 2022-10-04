@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
 router.get('/job-roles', async (req, res) => { 
   try {
      var jobs = await jobdata.getJobRoles()
-    console.log(jobs)
     if (jobs instanceof Error) {
       res.locals.errormessage = "Failed to retrieve jobs";
       res.render('error', req.body)

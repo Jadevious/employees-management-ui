@@ -23,7 +23,7 @@
         {% set jobrows = [] %}
         {% for job in jobRoles%}
         <tr>
-            <td>{{job.name}}<br>(band here)</td>
+            <td>{{job.name}}<br>({{job.band_name}})</td>
             <td>{{job.job_description}}</td>
         </tr>
         {% endfor %}
