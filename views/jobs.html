@@ -10,23 +10,25 @@
         <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Kainos_logo.jpg">
     </div>
     <ul>
-        <li><a href="http://localhost:3000/job-roles">Job Roles</a></li>
+        <li id="job_roles_link"><a href="http://localhost:3000/job-roles">Job Roles</a></li>
     </ul>
     <br><br>
     {% block main %}
-    <table>
+    <table id="jobs_table">
         {% if jobRoles and jobRoles.length > 0 %}
         <th>Job Name</th>
         <th>Job Description</th>
         <br><br>
+        {% set count = 1 %}
         {% set jobrows = [] %}
         {% for job in jobRoles%}
-        <tr>
-            <td>{{job.name}}</td>
+        <tr id ="row_{{ count }}">
+            <td id="job_name_{{ count }}">{{job.name}}</td>
 
-            <td>{{job.job_description}}</td>
+            <td id="job_description_{{ count }}">{{job.job_description}}</td>
 
         </tr>
+        {% set count = count + 1 %}
         {% endfor %}
         {% endif %}
 
