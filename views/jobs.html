@@ -23,7 +23,7 @@
 
         <th>Job Name</th>
         <th>Job Description</th>
-        <th>Job Specification</th>
+        <th>Job Responsibilities</th>
         <br><br>
 
         {% set jobrows = [] %}
@@ -31,7 +31,7 @@
         <tr>
             <td>{{job.name}}</td>
             <td>{{job.job_description}}</td>
-            <td><a href="{{job.job_specification}}">View More</a></td>
+            <td>{{job.job_responsibilities}}</td>
         </tr>
 
         {% endfor %}

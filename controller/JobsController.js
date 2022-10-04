@@ -17,6 +17,11 @@ router.get('/job-roles', async (req, res) => {
       res.render('error', req.body)
     }
     else {
+      jobs.forEach(job => {
+        if (job.job_responsibilities.length = 500) {
+          job.job_responsibilities = job.job_responsibilities + "..."
+        }
+      });
       res.render('jobs.html', { jobRoles: jobs })
     }
   } catch (e) {
