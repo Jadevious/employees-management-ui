@@ -17,14 +17,15 @@
     {% block main %}
     <table>
         {% if jobRoles and jobRoles.length > 0 %}
+        <th>Capability</th>
         <th>Job Name</th>
         <th>Job Description</th>
         <br><br>
         {% set jobrows = [] %}
         {% for job in jobRoles%}
         <tr>
+            <td>{{job.capability}}</td>
             <td>{{job.name}}</td>
-
             <td>{{job.job_description}}</td>
 
         </tr>
