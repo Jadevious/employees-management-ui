@@ -1,3 +1,4 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -51,4 +52,44 @@ th{
 td{
   padding-bottom: 1em;
   width: 100px;
+}
+
+.homeContainer {
+  background-color: #283583;
+  font-family: "Didact Gothic", sans-serif;
+  color: #fff;
+  margin-left:10%;
+  margin-right:10%;
+  padding:10px;
+  height:100%;
+}
+
+.homeTextContainer{
+  float:left;
+  width:30%;
+}
+
+.homeTextContainer h1 {
+  font-size:60pt;
+}
+
+.homeTextContainer img {
+  float:right;
+}
+.homeContainer .button {
+  background-color: #283583;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 16px;
+  border-style: solid;
+  border-color:#fff;
+  border-width: 2px;
+  color: #fff;
+  padding: 16px;
+}
+
+.homeContainer .button:hover {
+  background-color: #fff;
+  border-color:#283583;
+  color: #283583;
+
 }

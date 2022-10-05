@@ -3,7 +3,7 @@ var router = express.Router();
 var jobdata = require('../data/jobdata.js')
 
 router.get('/', async (req, res) => {     
-  res.redirect('job-roles') 
+  res.redirect('index.html') 
 });
 
 router.get('/job-roles', async (req, res) => { 
