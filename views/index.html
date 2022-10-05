@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-
-<head>
+<!-- <head>
     <title>Job Roles</title>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
-        </style>
-</head>
+    </style>
+</head> -->
+
+{% block head %}
+    {% set title = "Kainos Careers" %}
+    {% include "includes/head.html" %}
+{% endblock %}
 
 <body>
     <div id="logo">
