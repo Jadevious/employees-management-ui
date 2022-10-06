@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./start",
-    "test": "mocha test/unit/**/*.js",
+    "test": "mocha test/unit/**/*.js --timeout 100000",
     "test-ui": "gulp --gulpfile gulpfile-ui.js ui"
   },
   "dependencies": {
