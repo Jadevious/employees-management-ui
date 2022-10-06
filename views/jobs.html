@@ -2,24 +2,22 @@
 {% extends "template.html" %}
 
 {% block content %}
-
     {% block main %}
-    <table>
+    <table id="jobs_table">
         {% if jobRoles and jobRoles.length > 0 %}
         <th>Job Name</th>
         <th>Job Description</th>
         <br><br>
+        {% set count = 1 %}
         {% set jobrows = [] %}
         {% for job in jobRoles%}
-        <tr>
-            <td>{{job.name}}</td>
-
-            <td>{{job.description}}</td>
-
+        <tr id ="row_{{ count }}">
+            <td id="job_name_{{ count }}">{{job.name}}</td>
+            <td id="job_description_{{ count }}">{{job.description}}</td>
         </tr>
+        {% set count = count + 1 %}
         {% endfor %}
         {% endif %}
-
     </table>
     {% endblock %}
 {% endblock %}
