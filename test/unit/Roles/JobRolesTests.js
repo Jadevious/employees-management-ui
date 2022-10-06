@@ -7,7 +7,8 @@ const URL = "http://localhost:8080/api/job-roles"
 
 const jobRoles = {
   job_description: "Builds the software from requirements set by clients",
-  name: "Software Engineer"
+  name: "Software Engineer",
+  band_name: "Apprentice"
 }
 
 const failedRolesError = 'Failed to get roles';
