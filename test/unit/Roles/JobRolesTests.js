@@ -16,10 +16,7 @@ const failedFindRolesError = 'Could not find roles'
 const failedToReachAPIError = 'Unable to reach API'
 const allOtherErrors = 'Error contacting API, please contact site Admin'
 
-
-
 describe('getJobRoles', function () {
-
   it('should return jobs from response', async () => {
     var mock = new MockAdapter(axios);
 
@@ -60,7 +57,5 @@ describe('getJobRoles', function () {
 
     expect(error.message).to.equal(failedToReachAPIError)
   })
-
-
 })
 

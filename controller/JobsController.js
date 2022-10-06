@@ -25,5 +25,4 @@ router.get('/job-roles', async (req, res) => {
   }
 });
 
-
 module.exports = router;
