@@ -4,14 +4,16 @@ const chromedriver = require('chromedriver');
 const chrome = require('selenium-webdriver/chrome');
 const assert = require ("assert");
 
-//baseUrl where endpoints can be added depending on the test
+//URL VARIABLES
 const baseUrl = 'http://localhost:3000'
+const homepageUrl = 'http://localhost:3000/index'
+const jobrolepageUrl = 'http://localhost:3000/job-roles'
 
-//Table Header
+//JOB ROLES PAGE VARIABLES
+//Table Headers
 const nameHeader = "Job Name"
 const descHeader = "Job Description"
 const responsibilitesHeader = 'Job Responsibilities'
-
 //Variables for validating the contents of the first row of job-roles table 
 const firstRowJobName = "Software Engineer"
 const firstRowJobDesc = "You will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide training and mentoring throughout your studies."
@@ -19,6 +21,63 @@ const firstRowJobResp = "As an Apprentice Software Engineer with Kainos, you wil
 
 
 async function jobRolesAutomationTest(){
+
+    // Home Page Tests
+
+    it('should redirect user to home page when they open the site', async() => {
+
+        let driver = await new Builder().forBrowser("chrome").build();
+        await driver.get(baseUrl)
+
+        var currentURL = await driver.getCurrentUrl();
+
+        assert.strictEqual(currentURL, homepageUrl)
+
+        await driver.quit();
+    })
+
+
+    it('should bring user to home page when the user presses the home button in nav bar', async() => {
+
+        let driver = await new Builder().forBrowser("chrome").build();
+        //start on a different page
+        await driver.get(baseUrl + '/job-roles')
+
+        await driver.findElement(By.xpath('//*[@id="logo"]/ul/li[1]/a')).click();
+
+        var currentURL = await driver.getCurrentUrl();
+        assert.strictEqual(currentURL, homepageUrl)
+
+        await driver.quit();
+    })
+
+    //view more roles button on home page should bring user to job roles page
+
+    // it('should bring user to Job Roles page when user presses View More Roles button on homepage', async() => {
+
+    //     let driver = await new Builder().forBrowser("chrome").build();
+    //     await driver.get(baseUrl)
+
+    //     await driver.findElement
+
+    // })
+
+    // Job Roles Page Tests
+
+    it('should bring user to the Job Roles page when job roles button in nav bar is clicked', async() => {
+
+        let driver = await new Builder().forBrowser("chrome").build();
+        await driver.get(baseUrl)
+
+        await driver.findElement(By.xpath('//*[@id="logo"]/ul/li[2]/a')).click();
+
+        var currentURL = await driver.getCurrentUrl();
+        assert.strictEqual(currentURL, jobrolepageUrl)
+
+        await driver.quit();
+
+
+    })
 
     it('should have the table headers be Job Name, Job Description and Job Responsibilites', async() => {
 

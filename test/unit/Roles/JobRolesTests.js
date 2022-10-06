@@ -58,8 +58,4 @@ describe('getJobRoles', function () {
 
     expect(error.message).to.equal(failedToReachAPIError)
   })
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 })
