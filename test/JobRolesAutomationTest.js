@@ -43,7 +43,7 @@ async function jobRolesAutomationTest(){
         //start on a different page
         await driver.get(baseUrl + '/job-roles')
 
-        await driver.findElement(By.xpath('//*[@id="logo"]/ul/li[1]/a')).click();
+        await driver.findElement(By.id('navbar-home')).click();
 
         var currentURL = await driver.getCurrentUrl();
         assert.strictEqual(currentURL, homepageUrl)
@@ -51,16 +51,19 @@ async function jobRolesAutomationTest(){
         await driver.quit();
     })
 
-    //view more roles button on home page should bring user to job roles page
 
-    // it('should bring user to Job Roles page when user presses View More Roles button on homepage', async() => {
+    it('should bring user to Job Roles page when user presses View More Roles button on homepage', async() => {
 
-    //     let driver = await new Builder().forBrowser("chrome").build();
-    //     await driver.get(baseUrl)
+        let driver = await new Builder().forBrowser("chrome").build();
+        await driver.get(baseUrl)
 
-    //     await driver.findElement
+        await driver.findElement(By.id('view-roles-button')).click();
 
-    // })
+        var currentURL = await driver.getCurrentUrl();
+        assert.strictEqual(currentURL, jobrolepageUrl)
+
+        await driver.quit();
+    })
 
     // Job Roles Page Tests
 
@@ -69,14 +72,12 @@ async function jobRolesAutomationTest(){
         let driver = await new Builder().forBrowser("chrome").build();
         await driver.get(baseUrl)
 
-        await driver.findElement(By.xpath('//*[@id="logo"]/ul/li[2]/a')).click();
+        await driver.findElement(By.id('navbar-job-roles')).click();
 
         var currentURL = await driver.getCurrentUrl();
         assert.strictEqual(currentURL, jobrolepageUrl)
 
         await driver.quit();
-
-
     })
 
     it('should have the table headers be Job Name, Job Description and Job Responsibilites', async() => {
@@ -102,6 +103,7 @@ async function jobRolesAutomationTest(){
         await driver.quit();
     })
 
+    
     //The following tests are assuming that Software Engineer will always be the first job listed in the table
 
     it('should have Software Engineer as the first job listed in the table', async() => {
