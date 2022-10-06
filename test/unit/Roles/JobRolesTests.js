@@ -7,15 +7,14 @@ const URL = "http://localhost:8080/api/job-roles"
 
 const jobRoles = {
   job_description: "Builds the software from requirements set by clients",
-  name: "Software Engineer"
+  name: "Software Engineer",
+  job_responsibilities: "Testing",
 }
 
 const failedRolesError = 'Failed to get roles';
 const failedFindRolesError = 'Could not find roles'
 const failedToReachAPIError = 'Unable to reach API'
 const allOtherErrors = 'Error contacting API, please contact site Admin'
-
-
 
 describe('getJobRoles', function () {
 
@@ -60,6 +59,4 @@ describe('getJobRoles', function () {
     expect(error.message).to.equal(failedToReachAPIError)
   })
 
-
 })
-
