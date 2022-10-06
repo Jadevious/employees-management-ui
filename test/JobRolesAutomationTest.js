@@ -6,8 +6,8 @@ const assert = require ("assert");
 
 //URL VARIABLES
 const baseUrl = 'http://localhost:3000'
-const homepageUrl = 'http://localhost:3000/index'
-const jobrolepageUrl = 'http://localhost:3000/job-roles'
+const homePageUrl = 'http://localhost:3000/index'
+const jobRolePageUrl = 'http://localhost:3000/job-roles'
 
 //JOB ROLES PAGE VARIABLES
 //Table Headers
@@ -31,7 +31,7 @@ async function jobRolesAutomationTest(){
 
         var currentURL = await driver.getCurrentUrl();
 
-        assert.strictEqual(currentURL, homepageUrl)
+        assert.strictEqual(currentURL, homePageUrl)
 
         await driver.quit();
     })
@@ -46,7 +46,7 @@ async function jobRolesAutomationTest(){
         await driver.findElement(By.id('navbar-home')).click();
 
         var currentURL = await driver.getCurrentUrl();
-        assert.strictEqual(currentURL, homepageUrl)
+        assert.strictEqual(currentURL, homePageUrl)
 
         await driver.quit();
     })
@@ -60,7 +60,7 @@ async function jobRolesAutomationTest(){
         await driver.findElement(By.id('view-roles-button')).click();
 
         var currentURL = await driver.getCurrentUrl();
-        assert.strictEqual(currentURL, jobrolepageUrl)
+        assert.strictEqual(currentURL, jobRolePageUrl)
 
         await driver.quit();
     })
@@ -75,7 +75,7 @@ async function jobRolesAutomationTest(){
         await driver.findElement(By.id('navbar-job-roles')).click();
 
         var currentURL = await driver.getCurrentUrl();
-        assert.strictEqual(currentURL, jobrolepageUrl)
+        assert.strictEqual(currentURL, jobRolePageUrl)
 
         await driver.quit();
     })
@@ -103,7 +103,7 @@ async function jobRolesAutomationTest(){
         await driver.quit();
     })
 
-    
+
     //The following tests are assuming that Software Engineer will always be the first job listed in the table
 
     it('should have Software Engineer as the first job listed in the table', async() => {
