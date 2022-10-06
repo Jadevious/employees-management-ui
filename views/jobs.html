@@ -25,10 +25,8 @@
         {% for job in jobRoles%}
         <tr id ="row_{{ count }}">
             <td id="job_name_{{ count }}">{{job.name}}</td>
-
             <td id="job_description_{{ count }}">{{job.description}}</td>
-
-            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
+            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}} <a href="{{job.specification}}">(view specs)</a></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
