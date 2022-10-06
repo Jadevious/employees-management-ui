@@ -19,6 +19,7 @@
         <th>Capability</th>
         <th>Job Name</th>
         <th>Job Description</th>
+        <th>Job Responsibilities</th>
         <br><br>
         {% set count = 1 %}
         {% set jobrows = [] %}
@@ -26,7 +27,10 @@
         <tr id ="row_{{ count }}">
             <td id="job_capability_{{ count }}">{{job.capability}}</td>
             <td id="job_name_{{ count }}">{{job.name}}</td>
+
             <td id="job_description_{{ count }}">{{job.description}}</td>
+
+            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
