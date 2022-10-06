@@ -6,10 +6,9 @@ router.get('/', async (req, res) => {
   res.redirect('index') 
 });
 
-router.get('/job-roles', async (req, res) => { 
+router.get('/job-roles', async (req, res) => {
   try {
-     var jobs = await jobdata.getJobRoles()
-    console.log(jobs)
+    var jobs = await jobdata.getJobRoles()
     if (jobs instanceof Error) {
       res.locals.errormessage = "Failed to retrieve jobs";
       res.render('error', req.body)
@@ -17,10 +16,15 @@ router.get('/job-roles', async (req, res) => {
       res.locals.errormessage = "No jobs found";
       res.render('error', req.body)
     } else {
-      res.render('jobs.html', { jobRoles: jobs } ) 
+      jobs.forEach(job => {
+        if (job.responsibilities.length = 500) {
+          job.responsibilities = job.responsibilities + "..."
+        }
+      });
+      res.render('jobs.html', { jobRoles: jobs })
     }
-  } catch(e) {
-    res.locals.errormessage = "Failed to render page, please contact a site admin";
+  } catch (e) {
+    res.locals.errormessage = "Failed to retrieve jobs: " + e;
     res.render('error', req.body)
   }
 });
