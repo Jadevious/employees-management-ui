@@ -26,19 +26,8 @@
         <tr id ="row_{{ count }}">
             <td id="job_capability_{{ count }}">{{job.capability}}</td>
             <td id="job_name_{{ count }}">{{job.name}}</td>
-
-            <td id="job_description_{{ count }}">{{job.job_description}}</td>
-<<<<<<< HEAD
-        <tr>
-            <td>{{job.capability}}</td>
-            <td>{{job.name}}</td>
-            <td>{{job.job_description}}</td>
-=======
-        <tr id ="row_{{ count }}">
-            <td id="job_name_{{ count }}">{{job.name}}</td>
-
-            <td id="job_description_{{ count }}">{{job.job_description}}</td>
->>>>>>> origin/main
+            <td id="job_description_{{ count }}">{{job.description}}</td>
+      
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
