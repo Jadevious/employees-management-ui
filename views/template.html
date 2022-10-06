@@ -9,15 +9,11 @@
 {% block beforeContent %}
 <div id="logo">
     <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Kainos_logo.jpg">
-<ul>
-    <li><a href="http://localhost:3000/">Home</a></li>
-    <li><a href="http://localhost:3000/job-roles">Job Roles</a></li>
+<ul id="navbar">
+    <li id="navbar-home"><a href="http://localhost:3000/">Home</a></li>
+    <li id="navbar-job-roles"><a href="http://localhost:3000/job-roles">Job Roles</a></li>
 </ul>
 </div>
-{% endblock %}
-
-{% block pageTitle %}
-  <h1>Kainos Careers</h1>
 {% endblock %}
 
 {% block content %} {% endblock %}
