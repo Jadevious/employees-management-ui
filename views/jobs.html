@@ -23,8 +23,8 @@
         {% set jobrows = [] %}
         {% for job in jobRoles%}
         <tr>
-            <td>{{job.name}}<br>({{job.band_name}})</td>
-            <td>{{job.job_description}}</td>
+            <td id="job_name_{{ count }}">{{job.name}}<br>{{job.band}}</td>
+            <td id="job_description_{{ count }}">{{job.description}}</td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
