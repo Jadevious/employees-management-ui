@@ -12,7 +12,7 @@ exports.getJobRoles = async () => {
          else if (e.response.status == 400) {
             return new Error('Could not find roles');
          }
-      } else if (e.code = 'ECONNREFUSED') { // If API response not present
+      } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
          return new Error('Unable to reach API');
       } else { // All other eventualities
          console.log("An unknown error occurred while retrieving job roles")

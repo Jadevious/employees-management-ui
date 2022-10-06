@@ -11,9 +11,7 @@ const routes = require('./controller/JobsController.js')
 const utils = require('./lib/utils.js')
 const config = require('./config.js')
 
-
 var useAutoStoreData = process.env.USE_AUTO_STORE_DATA || config.useAutoStoreData
-
 
 var nunjucksConfig = {
   autoescape: true,
@@ -23,7 +21,6 @@ var nunjucksConfig = {
 }
 
 var nunjucksAppEnv = nunjucks.configure("views", nunjucksConfig)
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
