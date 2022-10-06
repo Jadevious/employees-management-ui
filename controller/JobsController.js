@@ -16,13 +16,17 @@ router.get('/job-roles', async (req, res) => {
       res.locals.errormessage = "No jobs found";
       res.render('error', req.body)
     } else {
-      res.render('jobs.html', { jobRoles: jobs } ) 
+      jobs.forEach(job => {
+        if (job.responsibilities.length = 500) {
+          job.responsibilities = job.responsibilities + "..."
+        }
+      });
+      res.render('jobs.html', { jobRoles: jobs })
     }
-  } catch(e) {
-    res.locals.errormessage = "Failed to render page, please contact a site admin";
+  } catch (e) {
+    res.locals.errormessage = "Failed to retrieve jobs: " + e;
     res.render('error', req.body)
   }
 });
-
 
 module.exports = router;
