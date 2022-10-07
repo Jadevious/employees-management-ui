@@ -1,18 +1,7 @@
-<!DOCTYPE html>
+{% set title = "Job Roles" %}
+{% extends "template.html" %}
 
-<head>
-    <title>Job Roles</title>
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-</head>
-
-<body>
-    <div id="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Kainos_logo.jpg">
-    </div>
-    <ul>
-        <li id="job_roles_link"><a href="http://localhost:3000/job-roles">Job Roles</a></li>
-    </ul>
-    <br><br>
+{% block content %}
     {% block main %}
     <table id="jobs_table">
         {% if jobRoles and jobRoles.length > 0 %}
@@ -31,7 +20,6 @@
         {% set count = count + 1 %}
         {% endfor %}
         {% endif %}
-
     </table>
     {% endblock %}
-</body>
+{% endblock %}
