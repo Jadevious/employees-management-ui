@@ -11,14 +11,19 @@ const jobRolePageUrl = 'http://localhost:3000/job-roles'
 
 //JOB ROLES PAGE VARIABLES
 //Table Headers
+const capabilityHeader = "Capability"
 const nameHeader = "Job Name"
 const descHeader = "Job Description"
-const responsibilitesHeader = 'Job Responsibilities'
+const responsibilitesHeader = "Job Responsibilities"
+const capabilityHeaderXPath = '//*[@id="jobs_table"]/tbody/tr[1]/th[1]'
+const nameHeaderXPath = '//*[@id="jobs_table"]/tbody/tr[1]/th[2]'
+const descHeaderXPath = '//*[@id="jobs_table"]/tbody/tr[1]/th[3]'
+const responsibilitesHeaderXpath = '//*[@id="jobs_table"]/tbody/tr[1]/th[4]'
 //Variables for validating the contents of the first row of job-roles table 
 const firstRowJobName = "Software Engineer"
 const firstRowJobDesc = "You will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide training and mentoring throughout your studies."
 const firstRowJobResp = "As an Apprentice Software Engineer with Kainos, you will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide trai..."
-
+const firstRowCapability = "Engineering"
 
 async function jobRolesAutomationTest(){
 
@@ -64,7 +69,7 @@ async function jobRolesAutomationTest(){
 
         await driver.quit();
     })
-
+    
     // Job Roles Page Tests
 
     it('should bring user to the Job Roles page when job roles button in nav bar is clicked', async() => {
@@ -80,22 +85,27 @@ async function jobRolesAutomationTest(){
         await driver.quit();
     })
 
-    it('should have the table headers be Job Name, Job Description and Job Responsibilites', async() => {
+    it('should have the table headers be Capability, Job Name, Job Description and Job Responsibilites', async() => {
 
         let driver = await new Builder().forBrowser("chrome").build();
         await driver.get(baseUrl + '/job-roles')
 
-        let tableHeaderJobName = await driver.findElement(By.xpath('//*[@id="jobs_table"]/tbody/tr[1]/th[1]')).getText().then(function(value){
+        let tableHeaderCapability = await driver.findElement(By.xpath(capabilityHeaderXPath)).getText().then(function(value){
+            return value
+        })
+        assert.strictEqual(tableHeaderCapability, capabilityHeader)
+
+        let tableHeaderJobName = await driver.findElement(By.xpath(nameHeaderXPath)).getText().then(function(value){
             return value
         })
         assert.strictEqual(tableHeaderJobName, nameHeader)
 
-        let tableHeaderJobDescription = await driver.findElement(By.xpath('//*[@id="jobs_table"]/tbody/tr[1]/th[2]')).getText().then(function(value){
+        let tableHeaderJobDescription = await driver.findElement(By.xpath(descHeaderXPath)).getText().then(function(value){
             return value
         })
         assert.strictEqual(tableHeaderJobDescription, descHeader)
 
-        let tableHeaderJobResponsibilities = await driver.findElement(By.xpath('//*[@id="jobs_table"]/tbody/tr[1]/th[3]')).getText().then(function(value){
+        let tableHeaderJobResponsibilities = await driver.findElement(By.xpath(responsibilitesHeaderXpath)).getText().then(function(value){
             return value
         })
         assert.strictEqual(tableHeaderJobResponsibilities, responsibilitesHeader)
@@ -141,6 +151,20 @@ async function jobRolesAutomationTest(){
             return value
         })
         assert.strictEqual(firstJobResonsibilitiesValue, firstRowJobResp)
+
+        await driver.quit();
+    })
+
+    it('should have the correct Capability associated with the Software Engineer row in the job-roles table', async() => {
+
+         
+        let driver = await new Builder().forBrowser("chrome").build();
+        await driver.get(baseUrl + '/job-roles')
+
+        let firstCapabilitiesValue = await driver.findElement(By.id('job_capability_1')).getText().then(function(value){
+            return value
+        })
+        assert.strictEqual(firstCapabilitiesValue, firstRowCapability)
 
         await driver.quit();
     })
