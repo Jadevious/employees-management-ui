@@ -46,7 +46,7 @@ async function jobRolesAutomationTest(){
 
         let driver = await new Builder().forBrowser("chrome").build();
         //start on a different page
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         await driver.findElement(By.id('navbar-home')).click();
 
@@ -88,7 +88,7 @@ async function jobRolesAutomationTest(){
     it('should have the table headers be Capability, Job Name, Job Description and Job Responsibilites', async() => {
 
         let driver = await new Builder().forBrowser("chrome").build();
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         let tableHeaderCapability = await driver.findElement(By.xpath(capabilityHeaderXPath)).getText().then(function(value){
             return value
@@ -119,7 +119,7 @@ async function jobRolesAutomationTest(){
     it('should have Software Engineer as the first job listed in the table', async() => {
 
         let driver = await new Builder().forBrowser("chrome").build();
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         let firstJobNameValue = await driver.findElement(By.id('job_name_1')).getText().then(function(value){
             return value
@@ -132,7 +132,7 @@ async function jobRolesAutomationTest(){
     it('should have the correct Job Description associated with the Software Engineer row in the job-roles table', async() => {
 
         let driver = await new Builder().forBrowser("chrome").build();
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         let firstJobDescriptionValue = await driver.findElement(By.id('job_description_1')).getText().then(function(value){
             return value
@@ -145,7 +145,7 @@ async function jobRolesAutomationTest(){
     it('should have the correct Job Responsibilities associated with the Software Engineer row in the job-roles table', async() => {
         
         let driver = await new Builder().forBrowser("chrome").build();
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         let firstJobResonsibilitiesValue = await driver.findElement(By.id('job_responsibilities_1')).getText().then(function(value){
             return value
@@ -159,7 +159,7 @@ async function jobRolesAutomationTest(){
 
          
         let driver = await new Builder().forBrowser("chrome").build();
-        await driver.get(baseUrl + '/job-roles')
+        await driver.get(jobRolePageUrl)
 
         let firstCapabilitiesValue = await driver.findElement(By.id('job_capability_1')).getText().then(function(value){
             return value
@@ -171,6 +171,6 @@ async function jobRolesAutomationTest(){
 
     //end of Software Engineer tests
 
-}
+}   
 
 jobRolesAutomationTest();
