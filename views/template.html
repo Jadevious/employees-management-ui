@@ -1,0 +1,19 @@
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/public/css/style.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+</style>
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block beforeContent %}
+<div id="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Kainos_logo.jpg">
+<ul id="navbar">
+    <li id="navbar-home"><a href="http://localhost:3000/">Home</a></li>
+    <li id="navbar-job-roles"><a href="http://localhost:3000/job-roles">Job Roles</a></li>
+</ul>
+</div>
+{% endblock %}
+
+{% block content %} {% endblock %}
