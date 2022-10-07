@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: auto;
 }
 
 a {
@@ -32,23 +33,78 @@ li a:hover {
   background-color: white;
 }
 
-img{
+#logo {
+  width: 1800px;
+  padding-right: 50px;
+}
+
+#logo img {
   width: 470px;
   height: 200px;
 } 
+
 table{
   border: 1px solid;
   width: 1000px;
   border-collapse: collapse;
-  text-align:center;
-  padding:10px;
+  text-align: center;
+  padding: 10px;
 }
+
 th{
-  padding:10px;
+  padding: 10px;
   width: 100px;
   background-color: #00B7FF;
 }
+
 td{
   padding-bottom: 1em;
   width: 100px;
+}
+
+.homeContainer {
+  background-color: #283583;
+  font-family: "Didact Gothic", sans-serif;
+  color: #fff;
+  width: 1600px;
+  height: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+.homeTextContainer{
+  float: left;
+  width: 500px;
+  padding-left: 50px;
+  padding-right: 100px;
+  text-align: left;
+}
+
+.homeContainer img {
+  height: auto; 
+  width: 900px;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+.homeTextContainer h1 {
+  font-size: 60pt;
+}
+
+.homeContainer .button {
+  background-color: #283583;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 16px;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 2px;
+  color: #fff;
+  padding: 16px;
+}
+
+.homeContainer .button:hover {
+  background-color: #fff;
+  border-color: #283583;
+  color: #283583;
+
 }
