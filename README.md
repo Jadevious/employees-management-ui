@@ -24,7 +24,7 @@ Once all of the dependencies have finished installing, you can start the applica
     $ npm start
 
 ### Testing
-You can run the tests contained in the project's test folder simply running the following command.
+You can run the tests contained in the project's test folder simply by running the following command.
 
     $ npm test
 
