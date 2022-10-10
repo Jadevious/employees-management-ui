@@ -28,7 +28,7 @@ You can run the tests contained in the project's test folder simply by running t
 
     $ npm test
 
-You can run a specific test in the test folder by running the npm test commmand along with the file's relevant path.
+You can run a specific test in the test folder by running the npm test command along with the file's relevant path.
 
     $ npm test ./test/JobRolesAutomationTest.js
 
