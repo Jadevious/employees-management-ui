@@ -1,5 +1,5 @@
 # Kainos Recruitment UI node.js repo
-This is the repository containing the node.js project that runs the Kainos Recruitment application's API.
+This is the repository containing the node.js project that runs the Kainos Recruitment application's UI.
 
 ---
 ## Requirements
