@@ -5,15 +5,17 @@
     {% block main %}
     <table id="jobs_table">
         {% if jobRoles and jobRoles.length > 0 %}
-        <th>Job Name</th>
-        <th>Job Description</th>
-        <th>Job Responsibilities</th>
+        <th id="capability_header">Capability</th>
+        <th id="job_name_header">Job Name</th>
+        <th id="job_description_header">Job Description</th>
+        <th id="job_responsibilities_header">Job Responsibilities</th>
         <br><br>
         {% set count = 1 %}
         {% set jobrows = [] %}
-        {% for job in jobRoles%}
+        {% for job in jobRoles %}
         <tr id ="row_{{ count }}">
-            <td id="job_name_{{ count }}">{{job.name}}</td>
+            <td id="job_capability_{{ count }}">{{job.capability}}</td>
+            <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}">{{job.description}}</td>
             <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
         </tr>
