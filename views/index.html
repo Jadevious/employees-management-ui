@@ -1,10 +1,13 @@
 {% set title = "Kainos Careers" %}
 {% extends "template.html" %}
 {% block content %}
-    <br><br>
-
-    <div class = "homeContainer"><div class="homeTextContainer"><h1>Kainos Careers</h1><h2>Here at Kainos, we have a variety of jobs at different levels.</h2> 
-        <br> <input id="view-roles-button" type="button" class="button" onclick="location.href='http://localhost:3000/job-roles';" value="View More Roles" />
-        </div>
-        </div>
+<div class="home_container">
+    <div class="home_text_container">
+        <h1 id="home_heading">Kainos Careers</h1>
+        <h2 id="home_subheading">Here at Kainos, we have a variety of jobs at different levels.</h2>
+        <br>
+        <input id="view-roles-button" type="button" class="button"
+            onclick="location.href='http://localhost:3000/job-roles';" value="View More Roles" />
+    </div>
+</div>
 {% endblock %}
