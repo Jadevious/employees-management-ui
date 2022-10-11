@@ -24,7 +24,11 @@ Once all of the dependencies have finished installing, you can start the applica
     $ npm start
 
 ### Testing
-You can run the unit and automation tests contained in the project's test folder simply by running the following command.
+You can run the unit and integration tests contained in the project's test folder by running the following command.
+    
+    $ npm test
+
+You can run the application's automation tests by running the following command.
 
     $ npm test ./test/JobRolesAutomationTest.js
 
