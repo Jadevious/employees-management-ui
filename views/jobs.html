@@ -10,12 +10,13 @@
     </div>
     <div id="jobs_table_title_container"><h2 id="jobs_table_title">Find the job roles you need</h2></div>
         <table id="jobs_table">
-            {% if jobRoles and jobRoles.length > 0 %}
-            <th id="capability_header">Capability</th>
-            <th id="job_name_header">Job Name</th>
-            <th id="job_description_header">Job Description</th>
-            <th id="job_responsibilities_header">Job Responsibilities</th>
-            <br><br>
+    <table id="jobs_table">
+        {% if jobRoles and jobRoles.length > 0 %}
+        <th id="capability_header">Capability</th>
+        <th id="job_name_header">Job Name</th>
+        <th id="job_description_header">Job Description</th>
+        <th id="job_responsibilities_header">Job Responsibilities</th>
+        <br><br>
         {% set count = 1 %}
         {% set jobrows = [] %}
         {% for job in jobRoles %}
@@ -23,7 +24,7 @@
             <td id="job_capability_{{ count }}">{{job.capability}}</td>
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band_small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}" class="job_description_container">{{job.description}}</td>
-            <td id="job_responsibilities_{{ count }}" class="job_responsibilities_container">{{job.responsibilities}}</td>
+            <td id="job_responsibilities_{{ count }}" class="job_responsibilities_container">{{job.responsibilities}}<a id="job_specs_{{ count }}" href="{{job.specification}}">(view specs)</a></td></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
@@ -31,3 +32,5 @@
     </table>
     {% endblock %}
 {% endblock %}
+
+
