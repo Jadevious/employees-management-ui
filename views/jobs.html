@@ -17,7 +17,7 @@
             <td id="job_capability_{{ count }}">{{job.capability}}</td>
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}">{{job.description}}</td>
-            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}} <a href="{{job.specification}}">(view specs)</a></td>
+            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}} <a id="job_specs_{{ count }}" href="{{job.specification}}">(view specs)</a></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
