@@ -31,7 +31,3 @@ You can run the unit and integration tests contained in the project's test folde
 You can run the application's automation tests by running the following command.
 
     $ npm test ./test/JobRolesAutomationTest.js
-
-
-    
-
