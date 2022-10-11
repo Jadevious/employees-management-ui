@@ -31,7 +31,7 @@ async function jobRolesAutomationTest(){
 
     describe('Home Page Tests', () => {
 
-        it('should redirect user to home page when they open the site', async() => {
+        it('should redirect user to Home page when they open the site', async() => {
 
             let driver = await new Builder().forBrowser("chrome").build();
             await driver.get(baseUrl)
@@ -44,7 +44,7 @@ async function jobRolesAutomationTest(){
         })
 
 
-        it('should bring user to home page when the user presses the home button in nav bar', async() => {
+        it('should bring user to Home page when the user presses the Home button in nav bar', async() => {
 
             let driver = await new Builder().forBrowser("chrome").build();
             //start on a different page
@@ -57,7 +57,6 @@ async function jobRolesAutomationTest(){
 
             await driver.quit();
         })
-
 
         it('should bring user to Job Roles page when user presses View More Roles button on homepage', async() => {
 
@@ -75,7 +74,7 @@ async function jobRolesAutomationTest(){
     
     describe('Job Roles Page', () => {
 
-        it('should bring user to the Job Roles page when job roles button in nav bar is clicked', async() => {
+        it('should bring user to the Job Roles page when Job Roles button in nav bar is clicked', async() => {
 
             let driver = await new Builder().forBrowser("chrome").build();
             await driver.get(baseUrl)
@@ -117,7 +116,7 @@ async function jobRolesAutomationTest(){
         })
 
 
-        describe('these tests assume that software engineer will always be the first job listed in table', () => {
+        describe('these tests assume that Software Engineer will always be the first job listed in table', () => {
 
             it('should have Software Engineer as the first job listed in the table with assciated band', async() => {
 
@@ -177,7 +176,7 @@ async function jobRolesAutomationTest(){
                 let driver = await new Builder().forBrowser("chrome").build();
                 await driver.get(jobRolePageUrl)
 
-                await driver.findElement(By.xpath('//*[@id="job_responsibilities_1"]/a')).click();
+                await driver.findElement(By.id('job_specs_1')).click();
                 var currentURL = await driver.getCurrentUrl();
                 
                 expect(currentURL).to.contains(viewSoftwareEngineerSpecsURL)
