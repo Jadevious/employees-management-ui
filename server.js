@@ -5,6 +5,49 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
+var userdata = require('/Users/mieabiyeselema/teamC_groupProject/kainos-recruitment-ui/data/userdata.js')
+var users = userdata.getUsers()
+var session = require('express-session');
+var bodyParser = require('body-parser');
+
+
+const users1 = []
+
+const bcrypt = require('bcrypt')
+
+//app.get('/users', (req, res) => {
+//  res.json(users1)
+//})
+
+//app.post('/users', async (req, res) => {
+//  try {
+//    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+//    const user = { name: req.body.name, password: hashedPassword }
+//    users.push(user)
+//    res.status(201).send()
+//  } catch {
+//    res.status(500).send()
+//  }
+//})
+
+//app.post('/login', async (req, res) => {
+//  const user = Array.from(users).find(user => user.username === req.body.username)
+//  if (user == null) {
+//     return res.status(400).send('Cannot find user')
+//  }
+//  try {
+//    if(await bcrypt.compare(req.body.password, user.password)) {
+//      res.send('Success')
+//    } else {
+//      res.send('Not Allowed')
+//    }
+//  } catch {
+//    res.status(500).send()
+//  }
+//})
+
+
+
 
 // Importing js files from directory
 const routes = require('./controller/JobsController.js')
