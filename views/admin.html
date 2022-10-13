@@ -1,0 +1,28 @@
+{% set title = "Kainos Careers Admin Page" %}
+{% extends "template.html" %}
+{% block content %}
+<br><br>
+
+<h1 id="admin-homepage-header">Admin Homepage</h1>
+
+<div class="grid-container">
+    <div class="grid-item">
+        <h3 id="add-new-job">Add New Job</h3>
+        <p id="add-description">Add a new job role to the database</p>
+        <a id="add-button">Click here</a>
+    </div>
+    <div class="grid-item">
+        <h3 id="delete-job">Delete Job</h3>
+        <p id="delete-description">Delete a specific job role from the database</p>
+        <input id="delete-button" type="button" class="button" onclick="location.href='http://localhost:3000/delete-role';" value="Click here" />
+    </div>
+    <div class="grid-item">
+        <h3 id="edit-job">Edit Job</h3>
+        <p id="edit-description">Edit a specific job</p>
+        <a id="edit-button">Click here</a>
+    </div>
+
+</div>
+
+
+{% endblock %}
