@@ -63,14 +63,14 @@ router.post('/insert-role', async (req, res) => {
 
   if (error) {
       res.locals.errormessage = error
-      return res.render('new_role.html', req.body) 
+      return res.render('new_role', req.body) 
   }
 
   try {        
       const id = await jobdata.createRole(req.body)
       if(id != null) {
         res.locals.outcome = "Role added successfully"
-        res.render('jobs.html')
+        res.render('new_role')
 
       }
       else {
@@ -78,7 +78,7 @@ router.post('/insert-role', async (req, res) => {
       }
   } catch (e) {
       res.locals.errormessage = "Failed to submit form"
-      res.render('new_role.html', req.body)
+      res.render('new_role', req.body)
   }
 });
 
