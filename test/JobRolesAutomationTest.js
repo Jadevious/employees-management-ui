@@ -48,11 +48,11 @@ async function jobRolesAutomationTest(){
             let driver = await new Builder().forBrowser("chrome").build();
             await driver.get(baseUrl)
 
-            let logopresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
+            let logoPresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
                 return value;
             })
 
-            assert.equal(logopresent, true)
+            assert.equal(logoPresent, true)
 
             await driver.quit();
         })
@@ -137,11 +137,11 @@ async function jobRolesAutomationTest(){
                 let driver = await new Builder().forBrowser("chrome").build();
                 await driver.get(jobRolePageUrl)
     
-                let logopresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
+                let logoPresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
                     return value;
                 })
-    
-                assert.equal(logopresent, true)
+
+                assert.equal(logoPresent, true)
     
                 await driver.quit();
             })
