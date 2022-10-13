@@ -22,6 +22,8 @@ You can build this node.js application simply by running the following command.
 Once all of the dependencies have finished installing, you can start the application by running the following command.
 
     $ npm start
+    
+To check that your application is running enter url `http://localhost:3000/job-roles`
 
 ### Testing
 You can run the unit and integration tests contained in the project's test folder by running the following command.
