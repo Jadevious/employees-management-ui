@@ -19,8 +19,8 @@ const descHeader = "Job Description"
 const responsibilitesHeader = "Job Responsibilities"
 //Variables for validating the contents of the first row of job-roles table 
 const firstRowJobNameAndBand = "Software Engineer\n(Apprentice)"
-const firstRowJobDesc = "You will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide training and mentoring throughout your studies."
-const firstRowJobRespWithSpec = "As an Apprentice Software Engineer with Kainos, you will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide trai... (view specs)"
+const firstRowJobDesc = "You will work on projects where you can make a real difference to people’s lives – the lives of people you know."
+const firstRowJobRespWithSpec = "As an Apprentice Software Engineer with Kainos, you will work on projects where you can make a real difference to people’s lives – the lives of people you know. extensive training to set you off on the right foot, you will quickly work as a part of a team in developing solutions within our real projects, learning all about our development languages, projects and technologies. You will be fully supported by experienced colleagues in the team as well as an experienced mentor, who will provide trai...(view specs)"
 const firstRowCapability = "Engineering"
 //View Specs directs user to Microsoft Login page
 const viewSoftwareEngineerSpecsURL = 'https://login.microsoftonline.com/'
@@ -140,7 +140,9 @@ async function jobRolesAutomationTest(){
                 let firstJobDescriptionValue = await driver.findElement(By.id('job_description_1')).getText().then(function(value){
                     return value
                 })
-                assert.strictEqual(firstJobDescriptionValue, firstRowJobDesc)
+                // assert.strictEqual(firstJobDescriptionValue, firstRowJobDesc)
+
+                expect(firstJobDescriptionValue).to.contain(firstRowJobDesc)
 
                 await driver.quit();
             })
