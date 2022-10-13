@@ -227,16 +227,55 @@ td{
   vertical-align: middle;
 }
 
+#form_container {
+  padding:3%;
+}
+
 #edit_role_form {
-  border:2px, solid, #252D4F;
+ width:20%;
   font-family:"Didact Gothic", sans-serif;
-  text-align: left;
-  
 }
 
 .form_items_align {
-  margin-left:10%;
   font-family:"Didact Gothic", sans-serif;
 }
+
+.form_items_align label {
+  display:inline-block;
+  text-align:right;
+}
+
+.form_items_align input {
+  float:left;
+}
+
+#edit_roles_submit {
+  background-color: #283583;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 16px;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 2px;
+  color: #fff;
+  padding: 16px;
+  margin-bottom:3%;
+}
+
+#edit_roles_submit:hover {
+  background-color: #fff;
+  border-color: #283583;
+  color: #283583;
+
+}
+
+#textfield_specification {
+  width:400px;
+}
+
+#form_title{
+  color:#252D4F;
+  font-size:20pt;
+}
+
 
 
