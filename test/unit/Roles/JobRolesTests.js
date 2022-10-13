@@ -3,7 +3,7 @@ var MockAdapter = require('axios-mock-adapter');
 var chai = require('chai');
 const expect = chai.expect;
 const jobdata = require("../../../data/jobdata.js");
-const URL = "http://localhost:8080/api/job-roles"
+const URL = process.env.API_URL + "/api/job-roles"
 
 const jobRoles = {
   capability: "Engineering",

@@ -7,9 +7,9 @@ const {assert} = require('chai');
 const expect = chai.expect;
 
 //URL VARIABLES
-const baseUrl = 'http://localhost:3000'
-const homePageUrl = 'http://localhost:3000/index'
-const jobRolePageUrl = 'http://localhost:3000/job-roles'
+const baseUrl = 'https://ueeuzmyrxz.eu-west-1.awsapprunner.com'
+const homePageUrl = 'https://ueeuzmyrxz.eu-west-1.awsapprunner.com/index'
+const jobRolePageUrl = 'https://ueeuzmyrxz.eu-west-1.awsapprunner.com/job-roles'
 
 //JOB ROLES PAGE VARIABLES
 //Table Headers
