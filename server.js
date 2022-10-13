@@ -10,6 +10,12 @@ var users = userdata.getUsers()
 var session = require('express-session');
 var bodyParser = require('body-parser');
 
+// Support for parsing data in POSTs
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
 
 const users1 = []
 

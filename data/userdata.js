@@ -1,10 +1,18 @@
 const axios = require('axios');
 
+
+exports.checkUser = async () => { 
+
+
+
+
+}
+
 exports.getUsers = async () => {
     let Employees = []
     try{
         const viewUsers = await axios.get('http://localhost:8080/api/users')
-        console.log(viewUsers)
+        console.log(viewUsers.data)
         return viewUsers.data;
  
     }

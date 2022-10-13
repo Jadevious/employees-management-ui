@@ -4,7 +4,9 @@ var jobdata = require('../data/jobdata.js')
 var userdata = require('../data/userdata.js')
 var session = require('express-session');
 var bodyParser = require('body-parser');
-const users1 = []
+const usersR = []
+const jwt = require("jsonwebtoken");
+const env = require('dotenv').config();
 
 const bcrypt = require('bcrypt')
 
@@ -89,9 +91,9 @@ router.get('/login', async (req, res) => {
     res.locals.errormessage = "Failed to retrieve users: " + e;
     res.render('error', req.body)
   }
+  res.render('login.html')
+  
 });
-
-
 
 router.post('/login', async (req, res) => {
   var users = await userdata.getUsers()
@@ -100,10 +102,11 @@ router.post('/login', async (req, res) => {
     return res.status(400).send('Cannot find user')
   }
   try {
-    if(await bcrypt.compare(req.body.password, user.password)) {
-     res.send('Success')
+    if(await bcrypt.compare(req.body.password, user.password, (err, result))) {
+      //res.send('Success')
+      res.redirect('/index');
     } else {
-     res.send('Not Allowed')
+      res.send('Not Allowed')
     }
   } catch {
    res.status(500).send()
