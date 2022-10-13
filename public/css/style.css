@@ -1,97 +1,105 @@
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Didact Gothic", sans-serif;
+  margin:0;
   overflow: auto;
+  text-align:left;
 }
 
-a {
-  color: #00B7FF;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: lightskyblue;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to white on hover */
-li a:hover {
-  background-color: white;
+#header_container {
+  z-index:10;
+  background-color:#fff;
+  position: -webkit-sticky;
+  position:sticky;
+  top:0;
 }
 
 #logo {
-  width: 1800px;
-  padding-right: 50px;
+  display:flex;
+  align-items:center;
+ 
+  height:80px;
+  max-width: 1200px;
+  padding-left: calc(min(3.34vw, 12px));
+  padding-right: calc(min(3.34vw, 12px));
+  margin-top:0;
+  margin-right: auto;
+  margin-left: auto;
+ 
 }
 
-#logo img {
-  width: 470px;
-  height: 200px;
-} 
+#navbar {
+  padding-left: 0%;
+  padding-top:0.5%;
+ 
+}
 
-table{
-  border: 1px solid;
-  width: 1000px;
-  border-collapse: collapse;
+#navbar li {
+  list-style-type: none;
+  overflow: hidden;
+  float:left;
+  
+}
+
+#navbar img {
+  padding-right:12px;
+  padding-top:0%;
+  
+}
+
+#navbar li a {
+  color: #252d4f;
   text-align: center;
-  padding: 10px;
+  padding-left: 36px;
+  font-size:14pt;
+  text-decoration: underline solid white 3px;
+  background-color:#fff;
 }
 
-th{
-  padding: 10px;
-  width: 100px;
-  background-color: #00B7FF;
+/* Change the link color to white on hover */
+#navbar a:hover {
+  text-decoration-color: #252d4f;
+  text-underline-offset: 3%;
 }
 
-td{
-  padding-bottom: 1em;
-  width: 100px;
+.home_container {
+  background-image: url(https://cdn.phenompeople.com/CareerConnectResources/KAINGB/images/cropChild-SoQGk-1653562074041.png);
+  background-position: center;
+  background-size:cover;
+  width: 100%;
+  height: 70%;
+  position:relative;
 }
 
-.homeContainer {
+.home_text_container{
+  margin-top:15%;
+  width: 40%;
+  text-align: left;
+  position:absolute;
   background-color: #283583;
   font-family: "Didact Gothic", sans-serif;
   color: #fff;
-  width: 1600px;
-  height: 600px;
-  text-align: center;
-  margin: auto;
+  padding-left:1%;
 }
 
-.homeTextContainer{
-  float: left;
-  width: 500px;
-  padding-left: 50px;
-  padding-right: 100px;
-  text-align: left;
-}
-
-.homeContainer img {
+.home_container img {
   height: auto; 
-  width: 900px;
+  width: 100%;
   margin: 10px;
   padding-top: 10px;
 }
 
-.homeTextContainer h1 {
+.home_text_container h1 {
   font-size: 60pt;
+  margin-top:1%;
+  margin-bottom:1%;
 }
 
-.homeContainer .button {
+.home_text_container h2 {
+  margin-top:0;
+}
+
+.home_container .button {
   background-color: #283583;
   font-family: "Didact Gothic", sans-serif;
   font-size: 16px;
@@ -100,16 +108,104 @@ td{
   border-width: 2px;
   color: #fff;
   padding: 16px;
+  margin-bottom:3%;
 }
 
-.homeContainer .button:hover {
+.home_container .button:hover {
   background-color: #fff;
   border-color: #283583;
   color: #283583;
 }
 
-.band-small {
-  font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
+#jobs_container {
+  margin-top:0;
+  /* background-image: linear-gradient(to bottom, transparent, white), url(https://cdn.phenompeople.com/CareerConnectResources/KAINGB/images/End-User-Size-1-62-1643385500974.jpg); */
+  background-image: url(https://cdn.phenompeople.com/CareerConnectResources/KAINGB/images/End-User-Size-1-62-1643385500974.jpg);
+  background-position: center;
+  background-size:cover;
+  width: 100%;
+  height: 50%;
+  padding-top:5%;
+}
+
+#jobs_text_container {
+  background-color:#283583;
+  color:white;
+  width:40%;
+  text-align:left;
+  padding-left:2%;
+  float:right;
+}
+
+#jobs_text_container h1 {
+  font-size: 60pt;
+  margin-top:1%;
+  margin-bottom:1%;
+}
+
+#jobs_table_title_container {
+  color:#252d4f;
+  text-align:center;
+  font-size:30pt;
+  animation-name:slide_up;
+  animation-duration:2s;
+}
+
+@keyframes slide_up {
+  from {
+    margin-bottom: 100%;
+  }
+
+  to {
+    margin-top: 0%;
+  }
+}
+
+.band_small {
+  font-size: 13px;
+}
+
+table{
+  width: 1200px;
+  text-align: center;
+  margin:auto;
+}
+
+table, th, td {
+  border:1px solid black;
+  color:#252d4f;
+  border-collapse: collapse;
+}
+
+th{
+  padding:20px;
+  width: 100px;
+}
+
+td{
+  padding: 2%;
+  padding-bottom: 1em;
+  width: 150px;
+}
+
+.job_description_container {
+  width:300px;
+  text-align:left;
+}
+
+.job_responsibilities_container {
+  width:300px;
+  text-align:left;
+}
+
+#error_message_container {
+  width:30%;
+  background-color: #283583;
+  color:#fff;
+  text-align:center;
+  margin:auto;
+  padding:2%;
+  margin-top:10%;
 }
 
 #add_description_container textarea, #add_responsibility_container textarea {
