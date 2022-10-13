@@ -43,6 +43,20 @@ async function jobRolesAutomationTest(){
             await driver.quit();
         })
 
+        it('should have the logo present on the home page', async() => {
+
+            let driver = await new Builder().forBrowser("chrome").build();
+            await driver.get(baseUrl)
+
+            let logopresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
+                return value;
+            })
+
+            assert.equal(logopresent, true)
+
+            await driver.quit();
+        })
+
 
         it('should bring user to Home page when the user presses the Home button in nav bar', async() => {
 
@@ -118,6 +132,21 @@ async function jobRolesAutomationTest(){
 
         describe('these tests assume that Software Engineer will always be the first job listed in table', () => {
 
+            it('should have the logo present on the job-roles page', async() => {
+
+                let driver = await new Builder().forBrowser("chrome").build();
+                await driver.get(jobRolePageUrl)
+    
+                let logopresent = await driver.findElement(By.id('logo-img')).isDisplayed().then(function(value){
+                    return value;
+                })
+    
+                assert.equal(logopresent, true)
+    
+                await driver.quit();
+            })
+    
+
             it('should have Software Engineer as the first job listed in the table with assciated band', async() => {
 
                 let driver = await new Builder().forBrowser("chrome").build();
@@ -140,7 +169,6 @@ async function jobRolesAutomationTest(){
                 let firstJobDescriptionValue = await driver.findElement(By.id('job_description_1')).getText().then(function(value){
                     return value
                 })
-                // assert.strictEqual(firstJobDescriptionValue, firstRowJobDesc)
 
                 expect(firstJobDescriptionValue).to.contain(firstRowJobDesc)
 
