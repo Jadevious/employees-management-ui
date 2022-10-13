@@ -3,10 +3,13 @@ var MockAdapter = require('axios-mock-adapter');
 var chai = require('chai');
 const expect = chai.expect;
 const jobdata = require("../../../data/jobdata.js");
-const URL = "http://localhost:8080/api/job-roles"
-const capabilitiesURL = "http://localhost:8080/api/capabilities"
-const editJobRoleURL = "http://localhost:8080/api/admin/edit-role"
-const bandsURL = "http://localhost:8080/api/bands"
+const URL = process.env.API_URL;
+
+const job_rolesURL= "/api/job-roles"
+const capabilitiesURL = "/api/capabilities"
+const bandsURL = "/api/bands"
+const editJobRoleURL = "/api/admin/edit-role"
+
 
 const jobRoles = {
   id: 1,
@@ -46,8 +49,8 @@ const failedFindRolesError = 'Could not find roles'
 const failedFindRoleByIdError = 'Could not find the role'
 const failedToReachAPIError = 'Unable to reach API'
 const allOtherErrors = 'Error contacting API, please contact site Admin'
-const failedEditRolesError = 'Failed to update job'
-const failedFindEditRolesError = 'No job to update found'
+const failedEditRolesError = 'Failed to update role'
+const failedFindEditRolesError = 'Could not find the role to update'
 
 
 const failedCapabilitiesError = 'Failed to get capabilties';
@@ -59,28 +62,29 @@ describe('getJobRoles', function () {
   it('should return jobs from response', async () => {
     var mock = new MockAdapter(axios);
     const data = [jobRoles];
-    mock.onGet(URL).reply(200, data);
+    console.log(URL + job_rolesURL)
+    mock.onGet(URL + job_rolesURL).reply(200, data);
     var results = await jobdata.getJobRoles();
     expect(results[0]).to.deep.equal(jobRoles)
   })
 
   it('should throw exception when 500 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL).reply(500);
+    mock.onGet(URL + job_rolesURL).reply(500);
     var error = await jobdata.getJobRoles()
     expect(error.message).to.equal(failedRolesError)
   })
 
   it('should throw exception when 400 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL).reply(400);
+    mock.onGet(URL + job_rolesURL).reply(400);
     var error = await jobdata.getJobRoles()
     expect(error.message).to.equal(failedFindRolesError)
   })
 
   it('should throw exception when axios has no response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL).timeout();
+    mock.onGet(URL + job_rolesURL).timeout();
     var error = await jobdata.getJobRoles()
     expect(error.message).to.equal(failedToReachAPIError)
   })
@@ -89,28 +93,29 @@ describe('getJobRoles', function () {
 describe('getCapabilities', function () {
   it('should return capabilities from response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(capabilitiesURL).reply(200, capabilities);
+    console.log(URL+capabilitiesURL)
+    mock.onGet(URL + capabilitiesURL).reply(200, capabilities);
     var results = await jobdata.getCapabilities();
     expect(results).to.deep.equal(capabilities)
   })
 
   it('should throw exception when 500 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(capabilitiesURL).reply(500);
+    mock.onGet(URL + capabilitiesURL).reply(500);
     var error = await jobdata.getCapabilities()
     expect(error.message).to.equal(failedCapabilitiesError)
   })
 
   it('should throw exception when 400 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(capabilitiesURL).reply(400);
+    mock.onGet(URL + capabilitiesURL).reply(400);
     var error = await jobdata.getCapabilities()
     expect(error.message).to.equal(failedFindCapabilitiesError)
   })
 
   it('should throw exception when axios has no response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(capabilitiesURL).timeout();
+    mock.onGet(URL + capabilitiesURL).timeout();
     var error = await jobdata.getCapabilities()
     expect(error.message).to.equal(failedToReachAPIError)
   })
@@ -119,28 +124,28 @@ describe('getCapabilities', function () {
 describe('getBands', function () {
   it('should return bands from response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(bandsURL).reply(200, bands);
+    mock.onGet(URL+ bandsURL).reply(200, bands);
     var results = await jobdata.getBands();
     expect(results).to.deep.equal(bands)
   })
 
   it('should throw exception when 500 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(bandsURL).reply(500);
+    mock.onGet(URL+ bandsURL).reply(500);
     var error = await jobdata.getBands()
     expect(error.message).to.equal(failedBandsError)
   })
 
   it('should throw exception when 400 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(bandsURL).reply(400);
+    mock.onGet(URL+ bandsURL).reply(400);
     var error = await jobdata.getBands()
     expect(error.message).to.equal(failedFindBandsError)
   })
 
   it('should throw exception when axios has no response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(bandsURL).timeout();
+    mock.onGet(URL+ bandsURL).timeout();
     var error = await jobdata.getBands()
     expect(error.message).to.equal(failedToReachAPIError)
   })
@@ -151,28 +156,28 @@ describe('getJobRoleById', function () {
   var param = {id: 1}
   it('should return a job with the response id given', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL + "/" + id).reply(200, jobRoles);
+    mock.onGet(URL + job_rolesURL + "/" + id).reply(200, jobRoles);
     var results = await jobdata.getJobRoleById(param);
     expect(results).to.deep.equal(jobRoles)
   })
 
   it('should throw exception when 500 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL + "/1").reply(500);
+    mock.onGet(URL + job_rolesURL + "/" + id).reply(500);
     var error = await jobdata.getJobRoleById({id: 1})
     expect(error.message).to.equal(failedRoleByIdError)
   })
 
   it('should throw exception when 400 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL + "/1").reply(400);
+    mock.onGet(URL + job_rolesURL + "/" + id).reply(400);
     var error = await jobdata.getJobRoleById({id: 1})
     expect(error.message).to.equal(failedFindRoleByIdError)
   })
 
   it('should throw exception when axios has no response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(URL + "/1").timeout();
+    mock.onGet(URL + job_rolesURL + "/" + id).timeout();
     var error = await jobdata.getJobRoleById()
     expect(error.message).to.equal(failedToReachAPIError)
   })
@@ -184,29 +189,29 @@ describe('editJobRole', function () {
   it('should update role when edited role is returned', async () => {
    
     var mock = new MockAdapter(axios);
-    mock.onPut(editJobRoleURL).reply(200, updatedJobRole);
+    mock.onPut(URL + editJobRoleURL).reply(200, updateJobRole);
     var results = await jobdata.editJobRole(updateJobRole);
-    expect(results).to.deep.equal(updatedJobRole)
+    expect(results).to.deep.equal(updateJobRole)
   })
 
   it('should throw exception when 500 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(editJobRoleURL).reply(500);
-    var error = await jobdata.editJobRole(updatedJobRole)
-    expect(error.message).to.equal(failedEditRoleError)
+    mock.onPut(URL + editJobRoleURL).reply(500, updateJobRole);
+    var error = await jobdata.editJobRole(updateJobRole)
+    expect(error.message).to.equal(failedEditRolesError)
   })
 
   it('should throw exception when 400 error returned from axios', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(editJobRoleURL).reply(400);
-    var error = await jobdata.editJobRole(updatedJobRole)
-    expect(error.message).to.equal(failedFindEditRoleError)
+    mock.onPut(URL + editJobRoleURL).reply(400, updateJobRole);
+    var error = await jobdata.editJobRole(updateJobRole)
+    expect(error.message).to.equal(failedFindEditRolesError)
   })
 
   it('should throw exception when axios has no response', async () => {
     var mock = new MockAdapter(axios);
-    mock.onGet(editJobRoleURL).timeout();
-    var error = await jobdata.editJobRole(updatedJobrole)
+    mock.onPut(URL + editJobRoleURL).timeout();
+    var error = await jobdata.editJobRole(updateJobRole)
     expect(error.message).to.equal(failedToReachAPIError)
   })
   

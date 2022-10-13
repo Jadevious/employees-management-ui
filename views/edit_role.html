@@ -7,7 +7,7 @@
 {% if edit_data %}
 <div id="form_container">
     <h1 id="form_title">Edit Job Role</h1>
-<form id="edit_role_form" action="http://localhost:3000/role-updated" method="POST">
+<form id="edit_role_form" action="/role-updated" method="POST">
     <input type="hidden" name="id" id="hidden_job_id" value="{{edit_data.job.id}}">
     <label id="label_name">Name:</label><br><input id="textfield_name" name="name" class="form_items_align" type="text" maxlength="50"
         value="{{edit_data.job.name}}"> <br> <br>

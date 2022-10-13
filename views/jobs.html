@@ -26,7 +26,7 @@
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}" class="job_description_container">{{job.description}}</td>
             <td id="job_responsibilities_{{ count }}" class="job_responsibilities_container">{{job.responsibilities}}<a id="job_specs_{{ count }}" href="{{job.specification}}">(view specs)</a></td></td>
-            <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='http://localhost:3000/edit-role/?id={{job.id}}';" value="Edit Role"></td>
+            <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='/edit-role/?id={{job.id}}';" value="Edit Role"></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
