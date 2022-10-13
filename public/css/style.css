@@ -132,4 +132,16 @@ td{
   vertical-align: middle;
 }
 
+#edit_role_form {
+  border:2px, solid, #252D4F;
+  font-family:"Didact Gothic", sans-serif;
+  text-align: left;
+  
+}
+
+.form_items_align {
+  margin-left:10%;
+  font-family:"Didact Gothic", sans-serif;
+}
+
 

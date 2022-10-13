@@ -19,7 +19,7 @@
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}">{{job.description}}</td>
             <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
-            <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='http://localhost:3000/edit-role/?id=' + {{job.id}};" value="Edit Role"></td>
+            <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='http://localhost:3000/edit-role/?id={{job.id}}';" value="Edit Role"></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
