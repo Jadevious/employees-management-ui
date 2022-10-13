@@ -1,15 +1,15 @@
 const axios = require('axios');
-
+const url = process.env.API_URL
 
 exports.getJobRoles = async () => {
    try {
-      const jobResponse = await axios.get('http://localhost:8080/api/job-roles')
+      const jobResponse = await axios.get(url + '/api/job-roles')
       return jobResponse.data
    } catch (e) {
       if (e.response) { // If the API returned a response (good or bad)
          if(e.response.status == 500){
             return new Error('Failed to get roles');
-         }
+         } 
          else if (e.response.status == 400) {
             return new Error('Could not find roles');
          }
@@ -21,4 +21,3 @@ exports.getJobRoles = async () => {
       }
    }
 }
- 
