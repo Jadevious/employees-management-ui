@@ -3,6 +3,13 @@
 
 {% block content %}
     {% block main %}
+    <div id="jobs_container">
+        <div id="jobs_text_container"><h1 id="job_roles_heading">Job Roles at Kainos</h1>
+            <h2 id="job_roles_subheading">Explore all the capabilities and roles offered at Kainos</h2>
+        </div>
+    </div>
+    <div id="jobs_table_title_container"><h2 id="jobs_table_title">Find the job roles you need</h2></div>
+        <table id="jobs_table">
     <table id="jobs_table">
         {% if jobRoles and jobRoles.length > 0 %}
         <th id="capability_header">Capability</th>
@@ -17,8 +24,8 @@
         <tr id ="row_{{ count }}">
             <td id="job_capability_{{ count }}">{{job.capability}}</td>
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
-            <td id="job_description_{{ count }}">{{job.description}}</td>
-            <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
+            <td id="job_description_{{ count }}" class="job_description_container">{{job.description}}</td>
+            <td id="job_responsibilities_{{ count }}" class="job_responsibilities_container">{{job.responsibilities}}<a id="job_specs_{{ count }}" href="{{job.specification}}">(view specs)</a></td></td>
             <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='http://localhost:3000/edit-role/?id={{job.id}}';" value="Edit Role"></td>
         </tr>
         {% set count = count + 1 %}

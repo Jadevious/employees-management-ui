@@ -1,9 +1,10 @@
 {% set title = "Error" %}
 {% extends "template.html" %}
 {% block content %}
-    <h1>Error:</h1>
+<div id="error_message_container">
+    <h1 id="error_message_error">Error</h1>
     {% if errormessage %}
-    <h2>{{ errormessage }}</h2>
+    <h2 id="error_message_info">{{ errormessage }}</h2>
     {% endif %}
+</div>
 {% endblock %}
-
