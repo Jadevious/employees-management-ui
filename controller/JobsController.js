@@ -60,23 +60,43 @@ router.get('/delete-role', async (req, res) => {
 
 router.delete('/delete-job/:id', async (req, res) => {
   try {
-    const jobResponse = await axios.delete('http://localhost:8080/api/delete-job/' + req.id)
-    res.render('deletejob',req.body)
-  } catch (e) {
-    if (e.response) { // If the API returned a response (good or bad)
-      if (e.response.status == 500) {
-        return new Error('Failed to delete the role');
-      }
-      else if (e.response.status == 400) {
-        return new Error('Could not find the role');
-      }
-    } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
-      return new Error('Unable to reach API');
-    } else { // All other eventualities
-      return new Error('Error while contacting API, please contact site Admin');
+    var jobs = await jobdata.deleteJobRole(req.params.id)
+    if (jobs instanceof Error) {
+      console.log('no response from deleteJobRole')
+    } else {
+      res.render('jobs', req.body)
     }
+
+  } catch (e) {
+    console.log('no response from deleteJobRole')
   }
- 
+});
+
+
+router.get('/edit-role/*' , async (req, res) => {
+  try {
+    var job = await jobdata.getJobRoleById(req.query)
+    var capability = await jobdata.getCapabilities();
+    var bands = await jobdata.getBands();
+    if (job instanceof Error) {
+      res.locals.errormessage = "Failed to retrieve job";
+      res.render('error', req.body)
+    } else if(job == null){
+      res.locals.errormessage = "No job found";
+      res.render('error', req.body)
+    } else {
+        if (job.responsibilities.length = 500) {
+          job.responsibilities = job.responsibilities + "..."
+        }
+        let data = {edit_data : {job}, capabilities: capability, bands: bands}
+        console.log(data)
+      res.render('edit_role.html', data )
+    }
+  } catch (e) {
+    res.locals.errormessage = "Failed to retrieve jobs: " + e;
+    res.render('error', req.body)
+  }
+
 });
 
 
