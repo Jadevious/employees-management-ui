@@ -111,3 +111,21 @@ td{
 .band-small {
   font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+#add_description_container textarea, #add_responsibility_container textarea {
+  width:400px;
+  height:100px;
+  padding:10px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size:10pt;
+}
+
+#add_description_container {
+  align-items: center;
+  vertical-align: middle;
+}
+
+#add_responsibility_container {
+  align-items: center;
+  vertical-align: middle;
+}

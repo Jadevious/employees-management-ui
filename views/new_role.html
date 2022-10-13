@@ -1,0 +1,52 @@
+{% set title = "New Role" %}
+{% extends "template.html" %}
+{% block content %}
+{% if outcome %}
+<h2>{{ outcome }}</h2>
+{% endif %}
+<form id="new_role_form" action="http://localhost:3000/insert-role" method="POST">
+    <br><br>
+    <label id="label_name">Name: </label><input id="textfield_name" name="name" type="text" maxlength="50"
+        value="Enter name">
+    <br><br>
+
+    <div id="add_description_container">
+        <label id="label_description">Description: </label>
+        <br>
+        <textarea rows="3" cols="3" id="textfield_description" name="description" type="text" 
+    maxlength="500">Enter description</textarea>
+    </div>
+    <br>
+
+    <label id="label_specification">Specification: </label>
+    <input id="textfield_specification" name="specification" type="text"
+        maxlength="255" value="Enter specification">
+    <br><br>
+
+    <div id="add_responsibility_container">
+        <label id="label_responsibility">Responsibility: </label>
+        <br>
+        <textarea cols="3" row="3" id="textfield_responsibilities" name="responsibilities" type="text"
+        maxlength="500">Enter responsibilities</textarea>
+    </div>
+    <br>
+
+    <label id="label_capability">Capability: </label>
+    <select id="capability_select" name="capability">
+        {% for capability in capabilities %}
+        <option id="capability_id_{{capability.id}}_option" value="{{capability.id}}">{{capability.name}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Band Level: </label>
+    <select id="band_select" name="band_id">
+        {% for band in bands %}
+        <option id="band_id_{{band.id}}_option" value="{{band.id}}">{{band.name}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <input id="add_role_submit" type="submit">
+</form>
+{% endblock %}
