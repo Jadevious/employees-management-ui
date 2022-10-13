@@ -6,7 +6,6 @@ exports.getJobRoles = async () => {
       const jobResponse = await axios.get(url + '/api/job-roles')
       return jobResponse.data
    } catch (e) {
-      console.log(e);
       if (e.response) { // If the API returned a response (good or bad)
          if(e.response.status == 500){
             return new Error('Failed to get roles');
