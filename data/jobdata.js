@@ -1,15 +1,15 @@
 const axios = require('axios');
-
+const url = process.env.API_URL
 
 exports.getJobRoles = async () => {
    try {
-      const jobResponse = await axios.get('http://localhost:8080/api/job-roles')
+      const jobResponse = await axios.get(url + '/api/job-roles')
       return jobResponse.data
    } catch (e) {
       if (e.response) { // If the API returned a response (good or bad)
          if(e.response.status == 500){
             return new Error('Failed to get roles');
-         }
+         } 
          else if (e.response.status == 400) {
             return new Error('Could not find roles');
          }
@@ -24,7 +24,7 @@ exports.getJobRoles = async () => {
  
 exports.getCapabilities = async () => {
    try {
-      const jobResponse = await axios.get('http://localhost:8080/api/capabilities')
+      const jobResponse = await axios.get(url + '/api/capabilities')
       return jobResponse.data
    } catch (e) {
       if (e.response) { // If the API returned a response (good or bad)
@@ -44,7 +44,7 @@ exports.getCapabilities = async () => {
 
    exports.getBands = async () => {
       try {
-         const jobResponse = await axios.get('http://localhost:8080/api/bands')
+         const jobResponse = await axios.get(url + '/api/bands')
          return jobResponse.data
       } catch (e) {
          if (e.response) { // If the API returned a response (good or bad)
@@ -63,7 +63,7 @@ exports.getCapabilities = async () => {
    }
 
    exports.createRole = async function (role) {
-      const response = await axios.post('http://localhost:8080/api/admin/new-role', role)
+      const response = await axios.post(url + '/api/admin/new-role', role)
   
       return response.data
   }
