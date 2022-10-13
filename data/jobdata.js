@@ -7,7 +7,7 @@ exports.getJobRoles = async () => {
       return jobResponse.data
    } catch (e) {
       if (e.response) { // If the API returned a response (good or bad)
-         if(e.response.status == 500){
+         if (e.response.status == 500) {
             return new Error('Failed to get roles');
          }
          else if (e.response.status == 400) {
@@ -16,9 +16,88 @@ exports.getJobRoles = async () => {
       } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
          return new Error('Unable to reach API');
       } else { // All other eventualities
-         console.log("An unknown error occurred while retrieving job roles")
          return new Error('Error while contacting API, please contact site Admin');
       }
    }
 }
- 
+
+exports.getCapabilities = async () => {
+   try {
+      const jobResponse = await axios.get('http://localhost:8080/api/capabilities')
+      return jobResponse.data
+   } catch (e) {
+      if (e.response) { // If the API returned a response (good or bad)
+         if (e.response.status == 500) {
+            return new Error('Failed to get capabilties');
+         }
+         else if (e.response.status == 400) {
+            return new Error('Could not find capabilities');
+         }
+      } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
+         return new Error('Unable to reach API');
+      } else { // All other eventualities
+         return new Error('Error while contacting API, please contact site Admin');
+      }
+   }
+}
+
+   exports.getBands = async () => {
+      try {
+         const jobResponse = await axios.get('http://localhost:8080/api/bands')
+         return jobResponse.data
+      } catch (e) {
+         if (e.response) { // If the API returned a response (good or bad)
+            if (e.response.status == 500) {
+               return new Error('Failed to get bands');
+            }
+            else if (e.response.status == 400) {
+               return new Error('Could not find bands');
+            }
+         } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
+            return new Error('Unable to reach API');
+         } else { // All other eventualities
+            return new Error('Error while contacting API, please contact site Admin');
+         }
+      }
+   }
+
+      exports.getJobRoleById = async (req) => {
+         try {
+            const jobResponse = await axios.get('http://localhost:8080/api/job-roles/' + req.id)
+            return jobResponse.data
+         } catch (e) {
+            if (e.response) { // If the API returned a response (good or bad)
+               if (e.response.status == 500) {
+                  return new Error('Failed to get the role');
+               }
+               else if (e.response.status == 400) {
+                  return new Error('Could not find the role');
+               }
+            } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
+               return new Error('Unable to reach API');
+            } else { // All other eventualities
+               return new Error('Error while contacting API, please contact site Admin');
+            }
+         }
+      }
+
+      exports.editJobRole = async (req) => {
+         console.log(req)
+         // try {
+         //    const jobResponse = await axios.get('http://localhost:8080/api/job-roles/' + req.id)
+         //    return jobResponse.data
+         // } catch (e) {
+         //    if (e.response) { // If the API returned a response (good or bad)
+         //       if (e.response.status == 500) {
+         //          return new Error('Failed to get the role');
+         //       }
+         //       else if (e.response.status == 400) {
+         //          return new Error('Could not find the role');
+         //       }
+         //    } else if (e.code = 'ECONNREFUSED') { // Only true if API response not present
+         //       return new Error('Unable to reach API');
+         //    } else { // All other eventualities
+         //       return new Error('Error while contacting API, please contact site Admin');
+         //    }
+         // }
+      }

@@ -1,3 +1,4 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -112,3 +113,23 @@ td{
 .band-small {
   font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+#edit_description_container textarea, #edit_responsibility_container textarea {
+  width:400px;
+  height:100px;
+  padding:10px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size:10pt;
+}
+
+#edit_description_container {
+  align-items: center;
+  vertical-align: middle;
+}
+
+#edit_responsibility_container {
+  align-items: center;
+  vertical-align: middle;
+}
+
+

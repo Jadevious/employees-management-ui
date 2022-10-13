@@ -9,6 +9,7 @@
         <th id="job_name_header">Job Name</th>
         <th id="job_description_header">Job Description</th>
         <th id="job_responsibilities_header">Job Responsibilities</th>
+        <th id="edit_job_role_header"></th>
         <br><br>
         {% set count = 1 %}
         {% set jobrows = [] %}
@@ -18,6 +19,7 @@
             <td id="job_name_{{ count }}">{{job.name}}<br><p id="job_band_{{ count }}" class="band-small">({{job.band}})</p></td>
             <td id="job_description_{{ count }}">{{job.description}}</td>
             <td id="job_responsibilities_{{ count }}">{{job.responsibilities}}</td>
+            <td id="edit_job_role"><input id ="edit_role_button" type="button" onclick="location.href='http://localhost:3000/edit-role/?id=' + {{job.id}};" value="Edit Role"></td>
         </tr>
         {% set count = count + 1 %}
         {% endfor %}
@@ -25,3 +27,5 @@
     </table>
     {% endblock %}
 {% endblock %}
+
+
