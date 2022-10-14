@@ -1,9 +1,6 @@
 var express = require('express');
-<<<<<<< HEAD
 const { render } = require('nunjucks');
-=======
 const { Capabilities } = require('selenium-webdriver');
->>>>>>> origin/main
 var router = express.Router();
 var jobdata = require('../data/jobdata.js')
 const JobValidator = require('../validator/JobValidator');
@@ -35,7 +32,6 @@ router.get('/job-roles', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 router.get('/admin/new-role' , async (req, res) => {
   renderNewRole(req, res)
 });
@@ -80,7 +76,7 @@ async function renderNewRole (req, res) {
     res.render('error', req.body)
   }
 }
-=======
+
 router.post('/role-updated' , async (req, res) => {
   try {
     var edit_job = await jobdata.editJobRole(req.body)
@@ -99,7 +95,6 @@ router.post('/role-updated' , async (req, res) => {
     res.render('error', req.body)
   }
 })
-
 
 router.get('/edit-role/*' , async (req, res) => {
   try {
@@ -122,7 +117,6 @@ router.get('/edit-role/*' , async (req, res) => {
   }
 
 });
->>>>>>> origin/main
 
 module.exports = router;
 
