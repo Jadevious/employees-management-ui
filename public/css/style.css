@@ -115,7 +115,6 @@ body {
   background-color: #fff;
   border-color: #283583;
   color: #283583;
-
 }
 
 #jobs_container {
@@ -209,7 +208,8 @@ td{
   margin-top:10%;
 }
 
-#edit_description_container textarea, #edit_responsibility_container textarea {
+
+#add_description_container textarea, #add_responsibility_container textarea {
   width:400px;
   height:100px;
   padding:10px;
@@ -217,7 +217,28 @@ td{
   font-size:10pt;
 }
 
+#edit_description_container textarea, #edit_responsibility_container textarea {
+
+  width:400px;
+  height:100px;
+  padding:10px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size:10pt;
+}
+
+
+#add_description_container {
+  align-items: center;
+  vertical-align: middle;
+}
+
 #edit_description_container {
+  align-items: center;
+  vertical-align: middle;
+}
+
+
+#add_responsibility_container {
   align-items: center;
   vertical-align: middle;
 }
@@ -276,6 +297,3 @@ td{
   color:#252D4F;
   font-size:20pt;
 }
-
-
-

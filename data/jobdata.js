@@ -20,10 +20,10 @@ exports.getJobRoles = async () => {
       }
    }
 }
-
+ 
 exports.getCapabilities = async () => {
    try {
-      const jobResponse = await axios.get('http://localhost:8080/api/capabilities')
+      const jobResponse = await axios.get(url + '/api/capabilities')
       return jobResponse.data
    } catch (e) {
       if (e.response) { // If the API returned a response (good or bad)
@@ -43,7 +43,7 @@ exports.getCapabilities = async () => {
 
    exports.getBands = async () => {
       try {
-         const jobResponse = await axios.get('http://localhost:8080/api/bands')
+         const jobResponse = await axios.get(url + '/api/bands')
          return jobResponse.data
       } catch (e) {
          if (e.response) { // If the API returned a response (good or bad)
@@ -60,6 +60,12 @@ exports.getCapabilities = async () => {
          }
       }
    }
+
+   exports.createRole = async function (role) {
+      const response = await axios.post(url + '/api/admin/new-role', role)
+  
+      return response.data
+  }
 
       exports.getJobRoleById = async (req) => {
          try {
@@ -100,4 +106,5 @@ exports.getCapabilities = async () => {
             }
          }
       }
+
 
