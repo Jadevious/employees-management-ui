@@ -1,0 +1,39 @@
+{% set title = "Edit Role" %}
+{% extends "template.html" %}
+{% block content %}
+{% if statusmessage %}
+<h2>{{ statusmessage }}</h2>
+{% endif %}
+{% if edit_data %}
+<div id="form_container">
+    <h1 id="form_title">Edit Job Role</h1>
+<form id="edit_role_form" action="/role-updated" method="POST">
+    <input type="hidden" name="id" id="hidden_job_id" value="{{edit_data.job.id}}">
+    <label id="label_name">Name:</label><br><input id="textfield_name" name="name" class="form_items_align" type="text" maxlength="50"
+        value="{{edit_data.job.name}}"> <br> <br>
+    <div id="edit_description_container"><label id="label_description">Description:</label><textarea rows="3" cols="3" id="textfield_description" name="description" class="form_items_align" type="text" 
+    maxlength="500">{{edit_data.job.description}}</textarea></div><br>
+
+    <label id="label_specification">Specification:</label><input id="textfield_specification" name="specification" class="form_items_align" type="text"
+        maxlength="255" value="{{edit_data.job.specification}}"><br><br>
+
+    <div id="edit_responsibility_container"><label id="label_responsibility">Responsibility:</label><textarea cols="3" row="3" id="textfield_responsibilities" name="responsibilities" class="form_items_align" type="text"
+        maxlength="500">{{edit_data.job.responsibilities}}</textarea></div><br>
+
+    <label id="label_capability">Capability</label>
+    <select name="capability" class="form_items_align">
+        {% for capability in capabilities %}
+        <option id="capability_id_{{capability.id}}_option" value="{{capability.id}}">{{capability.name}}</option>
+        {% endfor %}
+    </select><br><br>
+    <label>Band Level</label><br>
+    <select name="band_id" class="form_items_align">
+        {% for band in bands %}
+        <option id="band_id_{{band.id}}_option" value="{{band.id}}">{{band.name}}</option>
+        {% endfor %}
+    </select><br><br>
+    <input id="edit_roles_submit" type="submit" >
+</form>
+</div>
+{% endif %}
+{% endblock %}
