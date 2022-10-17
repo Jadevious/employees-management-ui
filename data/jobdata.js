@@ -24,7 +24,7 @@ exports.getJobRoles = async () => {
 
 exports.deleteJobRole = async (id) => {
   
-   const response = await axios.delete('http://localhost:8080/api/delete-job/',id)
+   const response = await axios.delete('http://localhost:8080/api/delete-job/'+id)
    return response.data
 
 }

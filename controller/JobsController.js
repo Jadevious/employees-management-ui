@@ -58,7 +58,7 @@ router.get('/delete-role', async (req, res) => {
 
 
 
-router.delete('/delete-job/:id', async (req, res) => {
+router.get('/delete-job/:id', async (req, res) => {
   try {
     var jobs = await jobdata.deleteJobRole(req.params.id)
     if (jobs instanceof Error) {
